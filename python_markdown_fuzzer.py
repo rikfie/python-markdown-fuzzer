@@ -160,6 +160,15 @@ def test_markdown_wikilinks(inp):
     except NotImplementedError:
         return
 
+def test_markdown_all_extensions(inp):
+    """ Testing markdown method with all extensions """
+    try:
+        markdown.markdown(inp, extensions=['extra', 'abbr', 'attr_list', 'def_list', \
+            'fenced_code', 'footnotes', 'md_in_html', 'tables', 'admonition', 'codehilite', \
+            'legacy_attrs', 'legacy_em', 'meta', 'nl2br', 'sane_lists', 'smarty', 'toc', \
+            'wikilinks'])
+    except NotImplementedError:
+        return
 
 def inp_of_type(fdp, inp_type):
     """ Get input of the right type """
@@ -192,6 +201,7 @@ TESTS = [
     (test_markdown_smarty, str),
     (test_markdown_toc, str),
     (test_markdown_wikilinks, str),
+    (test_markdown_all_extensions, str),
 ]
 
 def test_one_input(input_bytes):
